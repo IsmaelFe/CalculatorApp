@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;700&family=Outfit:wght@400;500&display=swap');
+
 :root {
     --color-primary: #3A4764;
     --color-secondary: #252D42;
@@ -7,6 +9,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Outfit', sans-serif;
 }
 
 .main-container {
@@ -23,17 +26,50 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 300px;
+    width: 330px;
     padding-top: 30px;
     color: white;
 }
 
+.firts-container p {
+    margin-left: 55px;
+    margin-top: 20px;
+}
+
 .theme-container ul {
     display: flex;
+    justify-content: space-around;
+    gap: 15px;
 }
 
 .theme-container li {
     list-style: none;
+}
+
+.switch {
+    display: inline-block;
+    position: relative;
+    width: 70px;
+    height: 25px;
+    margin-top: 5px;
+    background-color: var(--color-secondary);
+    border-radius: 40px;
+}
+
+.switch::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    background-color: #D63C33;
+}
+
+#toggle {
+    position: absolute;
+    left: -999999px;
 }
 
 .second-container input {
@@ -43,6 +79,14 @@
     pointer-events: none;
     background-color: var(--color-tertiary);
     border: none;
+}
+
+.second-container input::placeholder {
+    color: white;
+    font-size: 3em;
+    font-weight: 800;
+    text-align: end;
+    margin-right: 20px;
 }
 
 .third-container {
@@ -67,4 +111,32 @@
     width: 20%;
     border-radius: 3px;
     border: none;
+    background-color: #EAE3DB;
+    color: #454C59;
+    font-size: 1.6em;
+    font-weight: 800;
+    box-shadow: 0px 5px #B2A399;
+}
+
+.button-container .reset-button {
+    width: 45%;
+    color: white;
+    background-color: #657298;
+    font-size: 1.2em;
+    box-shadow: 0px 5px #424F72;
+}
+
+.button-container .result-button {
+    width: 45%;
+    color: white;
+    background-color: #D03E30;
+    font-size: 1.2em;
+    box-shadow: 0px 5px #92261B;
+}
+
+.button-container .del-button {
+    background-color: #657298;
+    color: white;
+    font-size: 1.2em;
+    box-shadow: 0px 5px #424F72;
 }
