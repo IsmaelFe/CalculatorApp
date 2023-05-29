@@ -3,7 +3,46 @@
 :root {
     --color-primary: #3A4764;
     --color-secondary: #252D42;
-    --color-tertiary: #181F32;
+    --color-terciary: #181F32;
+    --result-button: #D03E30;
+    --reset-button: #657298;
+    --number-button: #EAE3DB;
+    --color-number: #454C59;
+    --color-text:  #FFFFFF;
+    --special-buttons: #FFFFFF;
+    --number-shadow: #B2A399;
+    --reset-shadow: #424F72;
+    --result-shadow: #92261B;
+}
+
+.theme-two {
+    --color-primary: #E6E6E6;
+    --color-secondary: #D5CDCC;
+    --color-terciary: #FFFFFF;
+    --result-button: #C85402;
+    --reset-button: #388286;
+    --number-button: #E6E5E1;
+    --color-number: #34372E;
+    --color-text: #3B3834;
+    --special-buttons: #FFFFFF;
+    --number-shadow: #A79E98;
+    --reset-shadow: #1A6366;
+    --result-shadow: #8D4818;
+}
+
+.theme-three {
+    --color-primary: #170728;
+    --color-secondary: #1C0936;
+    --color-terciary: #1C0936;
+    --result-button: #01DFCE;
+    --reset-button: #57077C;
+    --number-button: #331B51;
+    --color-number: #F3D875;
+    --color-text: #F3D875;
+    --special-buttons: #FFFFFF;
+    --number-shadow: #691A84;
+    --reset-shadow: #A315D4;
+    --result-shadow: #67B1C2;
 }
 
 * {
@@ -28,7 +67,7 @@
     align-items: center;
     width: 330px;
     padding-top: 30px;
-    color: white;
+    color: var(--color-text);
 }
 
 .firts-container p {
@@ -47,6 +86,7 @@
 }
 
 .switch {
+    cursor: pointer;
     display: inline-block;
     position: relative;
     width: 70px;
@@ -64,10 +104,11 @@
     border-radius: 50%;
     top: 5px;
     left: 5px;
-    background-color: #D63C33;
+    background-color: var(--result-button);
 }
 
 .switch-2 {
+    cursor: pointer;
     display: inline-block;
     position: relative;
     width: 70px;
@@ -85,10 +126,11 @@
     border-radius: 50%;
     top: 5px;
     left: 39%;
-    background-color: #D63C33;
+    background-color: var(--result-button);
 }
 
 .switch-3 {
+    cursor: pointer;
     display: inline-block;
     position: relative;
     width: 70px;
@@ -106,7 +148,7 @@
     border-radius: 50%;
     top: 5px;
     left: 70%;  
-    background-color: #D63C33;
+    background-color: var(--result-button);
 }
 
 #toggle {
@@ -119,12 +161,12 @@
     height: 80px;
     border-radius: 7px;
     pointer-events: none;
-    background-color: var(--color-tertiary);
+    background-color: var(--color-terciary);
     border: none;
 }
 
 .second-container input::placeholder {
-    color: white;
+    color: var(--color-text);
     font-size: 3em;
     font-weight: 800;
     text-align: end;
@@ -149,36 +191,37 @@
 }
 
 .button-container button {
+    cursor: pointer;
     height: 100%;
     width: 20%;
     border-radius: 3px;
     border: none;
-    background-color: #EAE3DB;
-    color: #454C59;
+    background-color: var(--number-button);
+    color: var(--color-number);
     font-size: 1.6em;
     font-weight: 800;
-    box-shadow: 0px 5px #B2A399;
+    box-shadow: 0px 5px var(--number-shadow);
 }
 
 .button-container .reset-button {
     width: 45%;
-    color: white;
-    background-color: #657298;
+    color: var(--special-buttons);
+    background-color: var(--reset-button);
     font-size: 1.2em;
-    box-shadow: 0px 5px #424F72;
+    box-shadow: 0px 5px var(--reset-shadow);
 }
 
 .button-container .result-button {
     width: 45%;
-    color: white;
-    background-color: #D03E30;
+    color: var(--special-buttons);
+    background-color: var(--result-button);
     font-size: 1.2em;
-    box-shadow: 0px 5px #92261B;
+    box-shadow: 0px 5px var(--result-shadow);
 }
 
 .button-container .del-button {
-    background-color: #657298;
-    color: white;
+    background-color: var(--reset-button);
+    color: var(--special-buttons);
     font-size: 1.2em;
-    box-shadow: 0px 5px #424F72;
+    box-shadow: 0px 5px var(--reset-shadow);
 }
