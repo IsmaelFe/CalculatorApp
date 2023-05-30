@@ -2,6 +2,26 @@ let themes = document.querySelector(".theme");
 let toggle = document.querySelector(".switch");
 let cont = 0;
 
+let input = document.querySelector(".input-result");
+let one = document.querySelector(".one");
+let two = document.querySelector(".two");
+let three = document.querySelector(".three");
+let four = document.querySelector(".four");
+let five = document.querySelector(".five");
+let six = document.querySelector(".six");
+let seven = document.querySelector(".seven");
+let eight = document.querySelector(".eight");
+let nine = document.querySelector(".nine");
+let zero = document.querySelector(".zero");
+let del = document.querySelector(".del-button");
+let reset = document.querySelector(".reset-button");
+let result = document.querySelector(".result-button");
+let plus = document.querySelector(".plus");
+let less = document.querySelector(".less");
+let division = document.querySelector(".division");
+let multiplication = document.querySelector(".multiplication");
+let spot = document.querySelector(".spot");
+
 toggle.addEventListener("click", () => {
   cont++;
   if (cont == 1) {
@@ -15,4 +35,63 @@ toggle.addEventListener("click", () => {
     themes.className = "theme";
     cont = 0;
   }
+});
+
+function agregar(text) {
+  value = text.target.innerText;
+  input.value += value;
+}
+
+one.addEventListener("click", (e) => {
+  agregar(e);
+});
+two.addEventListener("click", (e) => {
+  agregar(e);
+});
+three.addEventListener("click", (e) => {
+  agregar(e);
+});
+four.addEventListener("click", (e) => {
+  agregar(e);
+});
+five.addEventListener("click", (e) => {
+  agregar(e);
+});
+six.addEventListener("click", (e) => {
+  agregar(e);
+});
+seven.addEventListener("click", (e) => {
+  agregar(e);
+});
+eight.addEventListener("click", (e) => {
+  agregar(e);
+});
+nine.addEventListener("click", (e) => {
+  agregar(e);
+});
+zero.addEventListener("click", (e) => {
+  agregar(e);
+});
+plus.addEventListener("click", (e) => {
+  agregar(e);
+});
+less.addEventListener("click", (e) => {
+  agregar(e);
+});
+spot.addEventListener("click", (e) => {
+  agregar(e);
+});
+division.addEventListener("click", (e) => {
+  agregar(e);
+});
+multiplication.addEventListener("click", (e) => {
+  agregar(e);
+});
+reset.addEventListener("click", () => {
+  input.value = null;
+});
+del.addEventListener("click", () => {
+  valor = input.value;
+  nuevoValor = valor.slice(0, -1);
+  input.value = nuevoValor;
 });

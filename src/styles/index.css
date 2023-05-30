@@ -157,20 +157,17 @@
 }
 
 .second-container input {
-    width: 335px;
+    width: 305px;
     height: 80px;
     border-radius: 7px;
     pointer-events: none;
     background-color: var(--color-terciary);
     border: none;
-}
-
-.second-container input::placeholder {
     color: var(--color-text);
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 800;
     text-align: end;
-    margin-right: 20px;
+    padding-right: 25px;
 }
 
 .third-container {
