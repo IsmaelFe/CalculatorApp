@@ -91,7 +91,45 @@ reset.addEventListener("click", () => {
   input.value = null;
 });
 del.addEventListener("click", () => {
-  valor = input.value;
-  nuevoValor = valor.slice(0, -1);
+  let valor = input.value;
+  let nuevoValor = valor.slice(0, -1);
   input.value = nuevoValor;
 });
+
+result.addEventListener("click", () => {
+  let valor = input.value;
+  operaciones(valor);
+});
+
+function operaciones(value) {
+  let newValue = value;
+  let expresionNum = /[0-9]+/g;
+  let expresionSig = /[+\-\/x]/g;
+  let sigArray = newValue.match(expresionSig);
+  let numArray = newValue.match(expresionNum);
+  let respuesta;
+
+  sigArray.forEach((element) => {
+    if (element === "+") {
+      respuesta = parseInt(numArray[0]) + parseInt(numArray[1]);
+      numArray = numArray.slice(2);
+      numArray.unshift(respuesta);
+      respuesta = null;
+    } else if (element === "-") {
+      respuesta = parseInt(numArray[0]) - parseInt(numArray[1]);
+      numArray = numArray.slice(2);
+      numArray.unshift(respuesta);
+      respuesta = null;
+    } else if (element === "/") {
+      respuesta = parseInt(numArray[0]) / parseInt(numArray[1]);
+      numArray = numArray.slice(2);
+      numArray.unshift(respuesta);
+      respuesta = null;
+    } else {
+      respuesta = parseInt(numArray[0]) * parseInt(numArray[1]);
+      numArray = numArray.slice(2);
+      numArray.unshift(respuesta);
+      respuesta = null;
+    }
+  });
+}
