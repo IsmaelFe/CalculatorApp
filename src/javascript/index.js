@@ -103,33 +103,49 @@ result.addEventListener("click", () => {
 
 function operaciones(value) {
   let newValue = value;
-  let expresionNum = /[0-9]+/g;
-  let expresionSig = /[+\-\/x]/g;
+  let expresionSig = /\+|\-|\x|\//g;
+  let expresionNum = /[0-9]*\.?[0-9]+/g;
   let sigArray = newValue.match(expresionSig);
-  let numArray = newValue.match(expresionNum);
-  let respuesta;
-
-  sigArray.forEach((element) => {
-    if (element === "+") {
-      respuesta = parseInt(numArray[0]) + parseInt(numArray[1]);
-      numArray = numArray.slice(2);
-      numArray.unshift(respuesta);
-      respuesta = null;
-    } else if (element === "-") {
-      respuesta = parseInt(numArray[0]) - parseInt(numArray[1]);
-      numArray = numArray.slice(2);
-      numArray.unshift(respuesta);
-      respuesta = null;
-    } else if (element === "/") {
-      respuesta = parseInt(numArray[0]) / parseInt(numArray[1]);
-      numArray = numArray.slice(2);
-      numArray.unshift(respuesta);
-      respuesta = null;
-    } else {
-      respuesta = parseInt(numArray[0]) * parseInt(numArray[1]);
-      numArray = numArray.slice(2);
-      numArray.unshift(respuesta);
-      respuesta = null;
-    }
+  let numArray = newValue.match(expresionNum).map((number) => {
+    return parseFloat(number);
   });
+  console.log(numArray);
+  console.log(sigArray);
+
+  const operadores = [
+    {
+      operador: "/",
+      fn: function (a, b) {
+        return a / b;
+      },
+    },
+    {
+      operador: "x",
+      fn: function (a, b) {
+        return a * b;
+      },
+    },
+    {
+      operador: "+",
+      fn: function (a, b) {
+        return a + b;
+      },
+    },
+    {
+      operador: "-",
+      fn: function (a, b) {
+        return a - b;
+      },
+    },
+  ];
+
+  for (let i = 0; i < operadores.length; i++) {
+    while (sigArray.indexOf(operadores[i].operador !== -1)) {
+      let indice = sigArray.indexOf(operadores[i].operador);
+      let resultado = operadores[i].fn(numArray[indice], numArray[indice + 1]);
+
+      numArray.splice(indice, 2, resultado);
+      sigArray.splice(indice, 1);
+    }
+  }
 }
