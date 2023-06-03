@@ -22,17 +22,42 @@ let division = document.querySelector(".division");
 let multiplication = document.querySelector(".multiplication");
 let spot = document.querySelector(".spot");
 
-toggle.addEventListener("click", () => {
-  cont++;
-  if (cont == 1) {
+let temaGuardado = localStorage.getItem("tema");
+
+if (temaGuardado) {
+  aplicarTema(temaGuardado);
+}
+
+function aplicarTema(tema) {
+  if (tema === "primerTema") {
     toggle.className = "switch-2";
     themes.className = "theme-two";
-  } else if (cont == 2) {
+  } else if (tema === "segundoTema") {
     toggle.className = "switch-3";
     themes.className = "theme-three";
   } else {
     toggle.className = "switch";
     themes.className = "theme";
+  }
+}
+
+toggle.addEventListener("click", () => {
+  cont++;
+  if (cont == 1) {
+    toggle.className = "switch-2";
+    themes.className = "theme-two";
+    let temaElegido = "primerTema";
+    localStorage.setItem("tema", temaElegido);
+  } else if (cont == 2) {
+    toggle.className = "switch-3";
+    themes.className = "theme-three";
+    let temaElegido = "segundoTema";
+    localStorage.setItem("tema", temaElegido);
+  } else {
+    toggle.className = "switch";
+    themes.className = "theme";
+    let temaElegido = "tercerTema";
+    localStorage.setItem("tema", temaElegido);
     cont = 0;
   }
 });
@@ -109,8 +134,6 @@ function operaciones(value) {
   let numArray = newValue.match(expresionNum).map((number) => {
     return parseFloat(number);
   });
-  console.log(numArray);
-  console.log(sigArray);
 
   const operadores = [
     {
@@ -140,12 +163,14 @@ function operaciones(value) {
   ];
 
   for (let i = 0; i < operadores.length; i++) {
-    while (sigArray.indexOf(operadores[i].operador !== -1)) {
-      let indice = sigArray.indexOf(operadores[i].operador);
-      let resultado = operadores[i].fn(numArray[indice], numArray[indice + 1]);
+    while (sigArray.indexOf(operadores[i].operador) !== -1) {
+      let index = sigArray.indexOf(operadores[i].operador);
+      let respuesta = operadores[i].fn(numArray[index], numArray[index + 1]);
 
-      numArray.splice(indice, 2, resultado);
-      sigArray.splice(indice, 1);
+      numArray.splice(index, 2, respuesta);
+      sigArray.splice(index, 1);
     }
   }
+
+  input.value = numArray[0];
 }
