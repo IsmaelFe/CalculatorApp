@@ -135,7 +135,7 @@ function operaciones(value) {
     return parseFloat(number);
   });
 
-  const operadores = [
+  const operators = [
     {
       operador: "/",
       fn: function (a, b) {
@@ -162,12 +162,12 @@ function operaciones(value) {
     },
   ];
 
-  for (let i = 0; i < operadores.length; i++) {
-    while (sigArray.indexOf(operadores[i].operador) !== -1) {
-      let index = sigArray.indexOf(operadores[i].operador);
-      let respuesta = operadores[i].fn(numArray[index], numArray[index + 1]);
+  for (let i = 0; i < operators.length; i++) {
+    while (sigArray.indexOf(operators[i].operador) !== -1) {
+      let index = sigArray.indexOf(operators[i].operador);
+      let result = operators[i].fn(numArray[index], numArray[index + 1]);
 
-      numArray.splice(index, 2, respuesta);
+      numArray.splice(index, 2, result);
       sigArray.splice(index, 1);
     }
   }
